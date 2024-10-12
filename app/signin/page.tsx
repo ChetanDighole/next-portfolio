@@ -67,6 +67,12 @@ export default function SignIn() {
                 >
                   Sign in
                 </button>
+                <div
+                  className="text-slate-400 text-center underline underline-offset-2 cursor-pointer"
+                  onClick={() => router.push("/")}
+                >
+                  back to home
+                </div>
               </form>
             </div>
           </div>

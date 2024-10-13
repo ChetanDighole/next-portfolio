@@ -15,6 +15,8 @@ export default function Admin() {
     router.push("/");
   };
 
+  const handleSkill = async () => {};
+
   if (status === "unauthenticated") {
     router.push("/signin");
     return;
@@ -79,7 +81,12 @@ export default function Admin() {
                 placeholder="enter number"
               />
             </div>
-            <button className="bg-blue-500 text-white w-max p-2">Submit</button>
+            <button
+              className="bg-blue-500 text-white w-max p-2"
+              onClick={() => handleSkill()}
+            >
+              Submit
+            </button>
           </div>
         ) : (
           <></>

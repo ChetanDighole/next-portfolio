@@ -7,6 +7,19 @@ import { useState } from "react";
 export default function Admin() {
   const [skillForm, setSkillForm] = useState(false);
 
+  const [skillFormData, setskillFormData] = useState({
+    skillName: "",
+    skillOrder: "",
+    skillImg: "",
+  });
+
+  const handleSkillChange = (e: any) => {
+    setskillFormData({
+      ...skillFormData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   const { data: session, status } = useSession();
   const router = useRouter();
 
@@ -15,7 +28,25 @@ export default function Admin() {
     router.push("/");
   };
 
-  const handleSkill = async () => {};
+  const handleSkill = async () => {
+    const form = new FormData();
+    form.append("title", skillFormData.skillName);
+    form.append("order", skillFormData.skillOrder);
+    form.append("image", skillFormData.skillImg);
+
+    try {
+      const res = await fetch("/api/skill", {
+        method: "POST",
+        body: form,
+      });
+
+      if (res.ok) {
+        console.log("submitted");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   if (status === "unauthenticated") {
     router.push("/signin");
@@ -65,12 +96,13 @@ export default function Admin() {
                 type="text"
                 className="w-max p-2 border border-black"
                 placeholder="enter name"
+                onChange={handleSkillChange}
               />
             </div>
 
             <div className="flex flex-col gap-2">
               <label htmlFor="skillImg">Add Image</label>
-              <input name="skillImg" type="file" />
+              <input name="skillImg" type="file" onChange={handleSkillChange} />
             </div>
             <div className="flex flex-col gap-2">
               <label htmlFor="skillOrder">Enter Order</label>
@@ -79,6 +111,7 @@ export default function Admin() {
                 type="number"
                 className="w-max p-2 border border-black"
                 placeholder="enter number"
+                onChange={handleSkillChange}
               />
             </div>
             <button

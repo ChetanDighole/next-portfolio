@@ -2,16 +2,26 @@
 
 import { useSession, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Admin() {
+  const [allSkills, setAllSkills] = useState([]);
   const [skillForm, setSkillForm] = useState(false);
-
   const [skillFormData, setskillFormData] = useState({
     skillName: "",
     skillOrder: "",
     skillImg: "",
   });
+
+  async function fetchSkills() {
+    const res = await fetch("/api/skill");
+    const data = await res.json();
+    setAllSkills(data.data);
+  }
+
+  useEffect(() => {
+    fetchSkills();
+  }, []);
 
   const handleSkillChange = (e: any) => {
     if (e.target.name === "skillImg") {
@@ -132,6 +142,38 @@ export default function Admin() {
           <></>
         )}
         {/* form for skills ends */}
+
+        <div className="flex flex-col gap-3">
+          <div className="grid grid-cols-5 gap-1 items-center">
+            <div className="font-semibold text-lg text-center">ID.</div>
+            <div className="font-semibold text-lg text-center">Title</div>
+            <div className="font-semibold text-lg text-center">Image URL</div>
+            <div className="font-semibold text-lg text-center">Order</div>
+            <div className="font-semibold text-lg text-center">Actions</div>
+          </div>
+          {allSkills.map((eachEle, index) => (
+            <div
+              key={index}
+              className="grid grid-cols-5 gap-1 border border-black p-1 items-center"
+            >
+              <div className="text-center">{eachEle.id}</div>
+              <div className="text-center">{eachEle.title}</div>
+              <div className="text-center">
+                {eachEle.image ? (
+                  <a href={eachEle.image} className="underline text-blue-600">
+                    Image URL
+                  </a>
+                ) : (
+                  "-"
+                )}
+              </div>
+              <div className="text-center">{eachEle.order}</div>
+              <div className="text-red-800 font-semibold text-center cursor-pointer underline">
+                Delete
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
       {/* skills section ends */}
     </div>

@@ -84,3 +84,18 @@ export async function POST(req: Request) {
     });
   }
 }
+
+// GET * skills
+
+export async function GET() {
+  try {
+    const prisma = new PrismaClient();
+    const data = await prisma.skill.findMany({});
+    return NextResponse.json({ data, success: true });
+  } catch (error) {
+    return NextResponse.json({
+      message: "catch at get method",
+      success: false,
+    });
+  }
+}

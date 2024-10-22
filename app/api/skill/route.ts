@@ -1,6 +1,40 @@
 import { NextApiRequest } from "next";
 import { NextResponse } from "next/server";
 import { PrismaClient } from "@prisma/client";
+import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
+
+const s3Client = new S3Client({
+  region: process.env.AWS_REGION,
+  credentials: {
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+  },
+});
+
+async function uploadFileToS3(buffer: Buffer, filename: string) {
+  const file = buffer;
+
+  const param = {
+    Bucket: process.env.AWS_BUCKET_NAME,
+    Key: `${filename}`,
+    Body: file,
+  };
+
+  const command = new PutObjectCommand(param);
+
+  try {
+    const res = await s3Client.send(command);
+
+    const data = {
+      res,
+      url: `https://${process.env.AWS_BUCKET_NAME}.s3.${process.env.AWS_REGION}.amazonaws.com/${filename}`,
+    };
+
+    return data;
+  } catch (error) {
+    return error;
+  }
+}
 
 export async function POST(req: Request) {
   try {
@@ -18,11 +52,17 @@ export async function POST(req: Request) {
       });
     }
 
+    const buffer = Buffer.from(await image.arrayBuffer());
+
+    const customFileName = `${title}.${image.name.split(".").pop()}`;
+
+    const uploadImage = await uploadFileToS3(buffer, customFileName);
+
     const newSkill = await prisma.skill.create({
       data: {
         title,
         order: order,
-        image: "",
+        image: uploadImage.url,
       },
     });
 

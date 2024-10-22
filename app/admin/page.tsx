@@ -1,5 +1,6 @@
 "use client";
 
+import { error } from "console";
 import { useSession, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -45,6 +46,7 @@ export default function Admin() {
     router.push("/");
   };
 
+  //functions
   const handleSkill = async () => {
     const form = new FormData();
     form.append("title", skillFormData.skillName);
@@ -60,6 +62,16 @@ export default function Admin() {
       if (res.ok) {
         console.log("submitted");
       }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const deleteSkillFunc = async (id: Number) => {
+    try {
+      const res = await fetch(`/api/skill/${id}`, {
+        method: "DELETE",
+      });
     } catch (error) {
       console.log(error);
     }
@@ -145,11 +157,21 @@ export default function Admin() {
 
         <div className="flex flex-col gap-3">
           <div className="grid grid-cols-5 gap-1 items-center">
-            <div className="font-semibold text-lg text-center">ID.</div>
-            <div className="font-semibold text-lg text-center">Title</div>
-            <div className="font-semibold text-lg text-center">Image URL</div>
-            <div className="font-semibold text-lg text-center">Order</div>
-            <div className="font-semibold text-lg text-center">Actions</div>
+            <div className="font-semibold text-base md:text-lg text-center">
+              ID.
+            </div>
+            <div className="font-semibold text-base md:text-lg text-center">
+              Title
+            </div>
+            <div className="font-semibold text-base md:text-lg text-center">
+              URL
+            </div>
+            <div className="font-semibold text-base md:text-lg text-center">
+              Order
+            </div>
+            <div className="font-semibold text-base md:text-lg text-center">
+              Actions
+            </div>
           </div>
           {allSkills.map((eachEle, index) => (
             <div
@@ -168,7 +190,10 @@ export default function Admin() {
                 )}
               </div>
               <div className="text-center">{eachEle.order}</div>
-              <div className="text-red-800 font-semibold text-center cursor-pointer underline">
+              <div
+                className="text-red-800 font-semibold text-center cursor-pointer underline"
+                onClick={() => deleteSkillFunc(eachEle.id)}
+              >
                 Delete
               </div>
             </div>

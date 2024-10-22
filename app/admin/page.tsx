@@ -14,10 +14,17 @@ export default function Admin() {
   });
 
   const handleSkillChange = (e: any) => {
-    setskillFormData({
-      ...skillFormData,
-      [e.target.name]: e.target.value,
-    });
+    if (e.target.name === "skillImg") {
+      setskillFormData({
+        ...skillFormData,
+        skillImg: e.target.files[0],
+      });
+    } else {
+      setskillFormData({
+        ...skillFormData,
+        [e.target.name]: e.target.value,
+      });
+    }
   };
 
   const { data: session, status } = useSession();

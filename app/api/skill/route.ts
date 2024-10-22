@@ -8,7 +8,7 @@ export async function POST(req: Request) {
     const body = await req.formData();
 
     const title = body.get("title") as string;
-    const image = body.get("image");
+    const image = body.get("image") as File;
     const order = parseInt(body.get("order") as string, 10);
 
     if (!title || !image) {

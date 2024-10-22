@@ -8,11 +8,14 @@ export async function POST(req: Request) {
     const body = await req.formData();
 
     const title = body.get("title") as string;
-    const Image = body.get("image");
+    const image = body.get("image");
     const order = parseInt(body.get("order") as string, 10);
 
-    if (!title || !Image) {
-      NextResponse.json({ message: "incomplete form data", success: false });
+    if (!title || !image) {
+      return NextResponse.json({
+        message: "incomplete form data",
+        success: false,
+      });
     }
 
     const newSkill = await prisma.skill.create({
@@ -24,14 +27,20 @@ export async function POST(req: Request) {
     });
 
     if (!newSkill) {
-      NextResponse.json({
+      return NextResponse.json({
         message: "unable to post in database",
         success: false,
       });
     }
 
-    NextResponse.json({ message: "data posted successfully", success: true });
+    return NextResponse.json({
+      message: "data posted successfully",
+      success: true,
+    });
   } catch (error) {
-    NextResponse.json({ message: "catch at skill post route", success: false });
+    return NextResponse.json({
+      message: "catch at skill post route",
+      success: false,
+    });
   }
 }

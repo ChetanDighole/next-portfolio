@@ -17,13 +17,13 @@ export default async function Experience() {
 
             <div className='border border-[#9E9E9E] w-full p-4 flex flex-col gap-2'>
                 <div className='flex flex-col md:flex-row items-start md:items-center justify-between'>
-                    <div>
+                    <div className='flex items-center gap-4'>
                         <a className='flex items-center gap-3' rel="noopener noreferrer" target='_blank' href='https://www.lemonyellow.design/'>
                             <Image alt='img' src={lemonyellowLogo} className='w-12 h-12 sm:w-16 sm:h-16' />
                             <h2 className='text-lg md:text-3xl underline underline-offset-2'>Lemon Yellow LLP</h2>
-                            <div className='hidden md:flex w-4 h-[2px] bg-black'></div>
-                            <div className='hidden md:flex text-lg md:text-3xl'>Frontend Developer</div>
                         </a>
+                        <div className='hidden md:flex w-4 h-[2px] bg-black'></div>
+                        <div className='hidden md:flex text-lg md:text-3xl'>Frontend Developer</div>
                     </div>
                     <div className='mt-2 md:mt-0 flex md:hidden font-medium text-lg'>Frontend Developer</div>
                     <div className='text-[#9E9E9E] text-base md:text-xl text-center`'>May 2023 - Present</div>

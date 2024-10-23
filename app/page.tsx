@@ -2,6 +2,7 @@ import Image from "next/image";
 import NavBar from "@/components/NavBar";
 import HeroSection from "@/components/HeroSection";
 import Skills from "@/components/Skills";
+import Experiencs from "@/components/Experience";
 
 export default function Home() {
   return (
@@ -13,6 +14,8 @@ export default function Home() {
       </div>
 
       <Skills />
+
+      <Experiencs />
     </div>
   );
 }

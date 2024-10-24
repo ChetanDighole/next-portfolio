@@ -12,5 +12,5 @@ export async function middleware(req) {
 }
 
 export const config = {
-  matcher: ["/api/skill"],
+  matcher: ["/api/skill", "/api/certification"],
 };

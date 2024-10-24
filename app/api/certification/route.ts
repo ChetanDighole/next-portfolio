@@ -24,7 +24,7 @@ export async function POST(req: Request) {
 
     const uploadImage = await uploadFileToS3(buffer, customFileName);
 
-    const newSkill = await prisma.skill.create({
+    const newCertification = await prisma.certification.create({
       data: {
         title,
         order: order,
@@ -32,7 +32,7 @@ export async function POST(req: Request) {
       },
     });
 
-    if (!newSkill) {
+    if (!newCertification) {
       return NextResponse.json({
         message: "unable to post in database",
         success: false,
@@ -50,18 +50,18 @@ export async function POST(req: Request) {
     );
   } catch (error) {
     return NextResponse.json({
-      message: "catch at skill post route",
+      message: "catch at certification post route",
       success: false,
     });
   }
 }
 
-// GET * skills
+// GET * certification
 
 export async function GET() {
   try {
     const prisma = new PrismaClient();
-    const data = await prisma.skill.findMany({});
+    const data = await prisma.certification.findMany({});
     return NextResponse.json({ data, success: true });
   } catch (error) {
     return NextResponse.json({

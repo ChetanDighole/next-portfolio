@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 export default function AdminCertification() {
 
@@ -11,8 +11,30 @@ export default function AdminCertification() {
         certificationImg: "",
     });
 
+    // below useEffect is for first render
+    useEffect(() => {
+        fetchCertification();
+    }, []);
+
+    //this function is for debouncing so that unnessary api calls be avoided
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            fetchCertification();
+        }, 9000);
+
+        return () => {
+            clearTimeout(timer);
+        };
+    }, [certificationFormData]);
+
 
     //functions
+
+    async function fetchCertification() {
+        const res = await fetch("/api/certification");
+        const data = await res.json();
+        setAllCertification(data.data);
+    }
 
     //handle change function
     async function handleCertificationChange(e) {
@@ -27,18 +49,50 @@ export default function AdminCertification() {
                 [e.target.name]: e.target.value
             })
         }
-
-        console.log(certificationFormData)
     }
 
     //submit function
     async function handleCertication() {
-        console.log('submitted')
+        const form = new FormData();
+        form.append("title", certificationFormData.certificationName);
+        form.append("order", certificationFormData.certificationOrder);
+        form.append("image", certificationFormData.certificationImg);
+
+        try {
+            const res = await fetch("/api/certification", {
+                method: "POST",
+                body: form,
+            });
+
+            if (res.status === 200) {
+                setcertificationFormData({
+                    certificationName: "",
+                    certificationOrder: "",
+                    certificationImg: "",
+                });
+            }
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     // delete certification function
-    async function deleteCertificationFunc() {
-        console.log('deleted')
+    async function deleteCertificationFunc(id) {
+        try {
+            const res = await fetch(`/api/certification/${id}`, {
+                method: "DELETE",
+            });
+
+            if (res.status === 200) {
+                setcertificationFormData({
+                    certificationName: certificationFormData.certificationName,
+                    certificationOrder: certificationFormData.certificationOrder,
+                    certificationImg: certificationFormData.certificationImg,
+                });
+            }
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     return (

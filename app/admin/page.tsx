@@ -1,6 +1,5 @@
 "use client";
 
-import { error } from "console";
 import { useSession, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -20,9 +19,21 @@ export default function Admin() {
     setAllSkills(data.data);
   }
 
+  // below useEffect is for first render
   useEffect(() => {
     fetchSkills();
   }, []);
+
+  //this function is for debouncing so that unnessary api calls be avoided
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      fetchSkills();
+    }, 9000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [skillFormData]);
 
   const handleSkillChange = (e: any) => {
     if (e.target.name === "skillImg") {
@@ -59,8 +70,12 @@ export default function Admin() {
         body: form,
       });
 
-      if (res.ok) {
-        console.log("submitted");
+      if (res.status === 200) {
+        setskillFormData({
+          skillName: "",
+          skillOrder: "",
+          skillImg: "",
+        });
       }
     } catch (error) {
       console.log(error);
@@ -72,6 +87,14 @@ export default function Admin() {
       const res = await fetch(`/api/skill/${id}`, {
         method: "DELETE",
       });
+
+      if (res.status === 200) {
+        setskillFormData({
+          skillName: skillFormData.skillName,
+          skillOrder: skillFormData.skillOrder,
+          skillImg: skillFormData.skillImg,
+        });
+      }
     } catch (error) {
       console.log(error);
     }
@@ -126,6 +149,7 @@ export default function Admin() {
                 className="w-max p-2 border border-black"
                 placeholder="enter name"
                 onChange={handleSkillChange}
+                value={skillFormData.skillName}
               />
             </div>
 
@@ -141,6 +165,7 @@ export default function Admin() {
                 className="w-max p-2 border border-black"
                 placeholder="enter number"
                 onChange={handleSkillChange}
+                value={skillFormData.skillOrder}
               />
             </div>
             <button

@@ -13,11 +13,20 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model skill {
+model Skill {
   id      Int      @id @default(autoincrement())
   title   String
   image   String
-  order   Int
+  order   Int      @default(1)
+  created DateTime @default(now())
+  updated DateTime @updatedAt
+}
+
+model Certification {
+  id      Int      @id @default(autoincrement())
+  title   String
+  image   String
+  order   Int      @default(1)
   created DateTime @default(now())
   updated DateTime @updatedAt
 }

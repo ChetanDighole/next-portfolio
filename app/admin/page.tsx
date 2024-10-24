@@ -3,6 +3,7 @@
 import { useSession, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import AdminCertification from "@/components/adminComponents/adminCertification.jsx";
 
 export default function Admin() {
   const [allSkills, setAllSkills] = useState([]);
@@ -226,6 +227,10 @@ export default function Admin() {
         </div>
       </div>
       {/* skills section ends */}
+
+      {/* certification section starts */}
+      <AdminCertification />
+      {/* certification section ends */}
     </div>
   );
 }

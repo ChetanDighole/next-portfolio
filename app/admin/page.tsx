@@ -29,7 +29,7 @@ export default function Admin() {
   useEffect(() => {
     const timer = setTimeout(() => {
       fetchSkills();
-    }, 9000);
+    }, 1000);
 
     return () => {
       clearTimeout(timer);

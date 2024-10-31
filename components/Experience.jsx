@@ -15,7 +15,7 @@ export default async function Experience() {
 
             {/* lemon yellow */}
 
-            <div className='border border-[#9E9E9E] w-full p-4 flex flex-col gap-2'>
+            <div className='border w-full p-4 flex flex-col gap-2 border-gray-300 rounded-lg shadow-md'>
                 <div className='flex flex-col md:flex-row items-start md:items-center justify-between'>
                     <div className='flex items-center gap-4'>
                         <a className='flex items-center gap-3' rel="noopener noreferrer" target='_blank' href='https://www.lemonyellow.design/'>
@@ -41,7 +41,7 @@ export default async function Experience() {
 
             {/* cognizant */}
 
-            <div className='border border-[#9E9E9E] w-full p-4 flex flex-col gap-2 mt-6'>
+            <div className='border border-gray-300 rounded-lg shadow-md w-full p-4 flex flex-col gap-2 mt-6'>
                 <div className='flex flex-col md:flex-row items-start md:items-center justify-between'>
                     <div>
                         <a className='flex items-center gap-3' rel="noopener noreferrer" target='_blank' href='https://www.cognizant.com/in/en'>

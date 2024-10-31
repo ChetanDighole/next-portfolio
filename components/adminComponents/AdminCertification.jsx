@@ -9,6 +9,7 @@ export default function AdminCertification() {
         certificationName: "",
         certificationOrder: "",
         certificationImg: "",
+        certificationDesc: ""
     });
 
     // below useEffect is for first render
@@ -20,7 +21,7 @@ export default function AdminCertification() {
     useEffect(() => {
         const timer = setTimeout(() => {
             fetchCertification();
-        }, 9000);
+        }, 1000);
 
         return () => {
             clearTimeout(timer);
@@ -57,6 +58,7 @@ export default function AdminCertification() {
         form.append("title", certificationFormData.certificationName);
         form.append("order", certificationFormData.certificationOrder);
         form.append("image", certificationFormData.certificationImg);
+        form.append("description", certificationFormData.certificationDesc);
 
         try {
             const res = await fetch("/api/certification", {
@@ -69,6 +71,7 @@ export default function AdminCertification() {
                     certificationName: "",
                     certificationOrder: "",
                     certificationImg: "",
+                    certificationDesc: "",
                 });
             }
         } catch (error) {
@@ -88,6 +91,7 @@ export default function AdminCertification() {
                     certificationName: certificationFormData.certificationName,
                     certificationOrder: certificationFormData.certificationOrder,
                     certificationImg: certificationFormData.certificationImg,
+                    certificationDesc: certificationFormData.certificationDesc
                 });
             }
         } catch (error) {
@@ -125,6 +129,18 @@ export default function AdminCertification() {
                     </div>
 
                     <div className="flex flex-col gap-2">
+                        <label htmlFor="certificationDesc">Enter certification description</label>
+                        <input
+                            name="certificationDesc"
+                            type="text"
+                            className="w-max p-2 border border-black"
+                            placeholder="enter description"
+                            onChange={handleCertificationChange}
+                            value={certificationFormData.certificationDesc}
+                        />
+                    </div>
+
+                    <div className="flex flex-col gap-2">
                         <label htmlFor="certificationImg">Add Image</label>
                         <input name="certificationImg" type="file" onChange={handleCertificationChange} />
                     </div>
@@ -152,12 +168,15 @@ export default function AdminCertification() {
             {/* form for skills ends */}
 
             <div className="flex flex-col gap-3">
-                <div className="grid grid-cols-5 gap-1 items-center">
+                <div className="grid grid-cols-6 gap-1 items-center">
                     <div className="font-semibold text-base md:text-lg text-center">
                         ID.
                     </div>
                     <div className="font-semibold text-base md:text-lg text-center">
                         Title
+                    </div>
+                    <div className="font-semibold text-base md:text-lg text-center">
+                        Desc.
                     </div>
                     <div className="font-semibold text-base md:text-lg text-center">
                         URL
@@ -172,10 +191,11 @@ export default function AdminCertification() {
                 {allCertification.map((eachEle, index) => (
                     <div
                         key={index}
-                        className="grid grid-cols-5 gap-1 border border-black p-1 items-center"
+                        className="grid grid-cols-6 gap-1 border border-black p-1 items-center"
                     >
                         <div className="text-center">{eachEle.id}</div>
                         <div className="text-center">{eachEle.title}</div>
+                        <div className="text-center">{eachEle.description}</div>
                         <div className="text-center">
                             {eachEle.image ? (
                                 <a href={eachEle.image} className="underline text-blue-600">

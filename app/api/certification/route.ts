@@ -10,6 +10,7 @@ export async function POST(req: Request) {
     const title = body.get("title") as string;
     const image = body.get("image") as File;
     const order = parseInt(body.get("order") as string, 10);
+    const desc = body.get("description") as string;
 
     if (!title || !image) {
       return NextResponse.json({
@@ -29,6 +30,7 @@ export async function POST(req: Request) {
         title,
         order: order,
         image: uploadImage.url,
+        description: desc,
       },
     });
 

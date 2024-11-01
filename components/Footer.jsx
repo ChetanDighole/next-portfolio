@@ -21,7 +21,7 @@ export default function Footer() {
                             className="w-full bg-slate-800 p-2 rounded text-gray-100 border border-gray-600 placeholder-gray-400"
                             rows="3" ></textarea>
 
-                        <button class="bg-[#F5F5F5] text-[#0F0F0F] rounded-md shadow-md hover:shadow-lg active:shadow-inner active:translate-y-1 transition-all font-mono px-4 h-12 text-lg w-full">
+                        <button className="bg-[#F5F5F5] text-[#0F0F0F] rounded-md shadow-md hover:shadow-lg active:shadow-inner active:translate-y-1 transition-all font-mono px-4 h-12 text-lg w-full">
                             Send
                         </button>
 

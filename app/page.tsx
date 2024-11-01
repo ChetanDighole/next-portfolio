@@ -5,6 +5,7 @@ import Skills from "@/components/Skills";
 import Experiencs from "@/components/Experience";
 import Certification from "@/components/Certification";
 import Projects from "@/components/Projects";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -22,6 +23,8 @@ export default function Home() {
       <Projects />
 
       <Certification />
+
+      <Footer />
     </div>
   );
 }

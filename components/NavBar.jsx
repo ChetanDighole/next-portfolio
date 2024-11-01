@@ -11,9 +11,9 @@ export default function NavBar() {
                 <Image alt="logo" src={Logo} className="w-full h-full" />
             </div>
             <div className="hidden lg:flex items-center gap-6 lg:gap-6">
-                <div className="w-6 h-6 lg:w-10 lg:h-10">
+                {/* <div className="w-6 h-6 lg:w-10 lg:h-10">
                     <Image alt="github" className="w-full h-full invert" src={GithubLogo} />
-                </div>
+                </div> */}
                 <div className="w-6 h-6 lg:w-10 lg:h-10">
                     <Image alt="github" className="w-full h-full" src={LinkedInLogo} />
                 </div>

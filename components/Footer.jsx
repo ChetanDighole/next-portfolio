@@ -1,5 +1,10 @@
 "use client"
 import { useState } from "react"
+import github from '@/public/images/github.png'
+import linkedIn from '@/public/images/linkedin_footer.png'
+import twitter from '@/public/images/twitter_footer.png'
+import hashnode from '@/public/images/hashnode.png'
+import Image from 'next/image'
 
 export default function Footer() {
 
@@ -47,6 +52,25 @@ export default function Footer() {
                 <div>
                     <h2 className="text-2xl font-semibold mb-4">Work with Me</h2>
                     <p className="text-gray-400">Ready to collaborate? Let’s discuss your project.</p>
+                    <div className='flex flex-wrap gap-2 mt-6 items-center'>
+
+                        <a href='https://github.com/ChetanDighole' target="_blank" rel="noopener noreferrer">
+                            <Image alt='img' src={github} className='w-10 h-10' />
+                        </a>
+
+                        <a href='https://www.linkedin.com/in/chetan-dighole-197b80205/' target="_blank" rel="noopener noreferrer">
+                            <Image alt='img' src={linkedIn} className='w-10 h-10 invert' />
+                        </a>
+
+                        <a href='https://twitter.com/ChetanDighole' target="_blank" rel="noopener noreferrer">
+                            <Image alt='img' src={twitter} className='w-10 h-10 invert' />
+                        </a>
+
+                        <a href='https://codewithchetan.hashnode.dev/' target="_blank" rel="noopener noreferrer">
+                            <Image alt='img' src={hashnode} className='w-10 h-10 invert' />
+                        </a>
+
+                    </div>
                 </div>
                 <div>
                     <div className="space-y-4">

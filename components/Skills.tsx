@@ -19,10 +19,10 @@ export default async function Skills() {
         <span className="bg-[#9E9E9E] h-[1px] w-full md:w-[273px] opacity-40"></span>
       </div>
 
-      <div className="grid grid-cols-4 md:grid-cols-6 justify-evenly items-center w-full text-center gap-4">
+      <div className="grid grid-cols-3 md:grid-cols-8 justify-evenly items-center w-full text-center gap-4">
         {data.map((eachEle) => (
           <div
-            className="filter grayscale hover:grayscale-0 flex flex-col w-max border border-gray-300 rounded-md shadow-md p-2 md:p-4 transition-transform duration-300 hover:scale-105"
+            className="filter grayscale hover:grayscale-0 flex flex-col items-center w-max border border-gray-300 rounded-md shadow-md p-2 md:p-4 transition-transform duration-300 hover:scale-105"
             key={eachEle.id}
           >
             <Image

@@ -23,6 +23,9 @@ export default function Footer() {
     }
 
     const submitMail = async () => {
+        if (!emailData.email) {
+            return
+        }
         const res = await fetch('/api/extra/email', {
             method: 'POST',
             headers: {

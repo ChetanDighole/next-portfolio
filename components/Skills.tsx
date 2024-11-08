@@ -22,17 +22,17 @@ export default async function Skills() {
       <div className="grid grid-cols-3 md:grid-cols-8 justify-evenly items-center w-full text-center gap-4">
         {data.map((eachEle) => (
           <div
-            className="filter grayscale hover:grayscale-0 flex flex-col items-center w-max border border-gray-300 rounded-md shadow-md p-2 md:p-4 transition-transform duration-300 hover:scale-105"
+            className="filter grayscale hover:grayscale-0 flex flex-col items-center w-full max-w-[120px] border border-gray-300 rounded-md shadow-md p-2 md:p-4 transition-transform duration-300 hover:scale-105"
             key={eachEle.id}
           >
             <Image
               alt={`${eachEle.title} logo`}
               src={eachEle.image}
-              width={400} // default width value in pixels
-              height={400}
-              className="w-14 h-14 sm:w-20 sm:h-20 transition-filter duration-300 ease-out"
+              width={80}
+              height={80}
+              className="w-20 h-20 object-contain transition-filter duration-300 ease-out"
             />
-            <h4>{eachEle.title}</h4>
+            <h4 className="text-center">{eachEle.title}</h4>
           </div>
         ))}
       </div>

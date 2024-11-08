@@ -1,6 +1,5 @@
 import Image from "next/image"
 import Logo from '@/public/images/logo.png'
-import GithubLogo from '@/public/images/github.png'
 import LinkedInLogo from '@/public/images/linkedin.png'
 
 export default function NavBar() {

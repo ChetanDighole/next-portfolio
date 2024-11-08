@@ -26,7 +26,7 @@ export default function Footer() {
         if (!emailData.email) {
             return
         }
-        const res = await fetch('/api/extra/email', {
+        await fetch('/api/extra/email', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

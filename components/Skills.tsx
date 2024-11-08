@@ -15,7 +15,7 @@ export default async function Skills() {
       </div>
 
       <div className="grid grid-cols-4 md:grid-cols-6 justify-evenly items-center w-full text-center gap-4">
-        {data.map((eachEle, index) => (
+        {data.map((eachEle) => (
           <div
             className="filter grayscale hover:grayscale-0 flex flex-col w-max border border-gray-300 rounded-md shadow-md p-2 md:p-4 transition-transform duration-300 hover:scale-105"
             key={eachEle.id}

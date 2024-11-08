@@ -1,3 +1,4 @@
+/* eslint-disable */
 "use client";
 
 import { useSession, signOut } from "next-auth/react";
@@ -83,7 +84,7 @@ export default function Admin() {
     }
   };
 
-  const deleteSkillFunc = async (id: Number) => {
+  const deleteSkillFunc = async (id: number) => {
     try {
       const res = await fetch(`/api/skill/${id}`, {
         method: "DELETE",

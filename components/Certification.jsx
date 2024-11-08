@@ -1,4 +1,3 @@
-import Image from "next/image"
 import CertificateCard from "./CertificateCard"
 import { PrismaClient } from "@prisma/client"
 
@@ -20,7 +19,7 @@ export default async function Certification() {
 
             <div className='grid grid-cols-2 md:grid-cols-4 gap-4'>
 
-                {data.map((eachEle, index) => (
+                {data.map((eachEle) => (
                     <CertificateCard title={eachEle.title} url={eachEle.image} subTitle={eachEle.description} key={eachEle.id} />
                 ))}
 

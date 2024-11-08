@@ -50,7 +50,7 @@ export async function POST(req: Request) {
         status: 200,
       }
     );
-  } catch (error) {
+  } catch {
     return NextResponse.json({
       message: "catch at certification post route",
       success: false,
@@ -65,7 +65,7 @@ export async function GET() {
     const prisma = new PrismaClient();
     const data = await prisma.certification.findMany({});
     return NextResponse.json({ data, success: true });
-  } catch (error) {
+  } catch {
     return NextResponse.json({
       message: "catch at get method",
       success: false,

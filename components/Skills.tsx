@@ -3,10 +3,14 @@ import { PrismaClient } from "@prisma/client";
 export default async function Skills() {
   const prisma = new PrismaClient();
 
-  const data = await prisma.skill.findMany({});
+  const data = await prisma.skill.findMany({
+    orderBy: {
+      order: "asc",
+    },
+  });
 
   return (
-    <div className="px-4 lg:px-16 pt-7 pb-14">
+    <div className="px-4 lg:px-16 pt-14 lg:pt-10 pb-14">
       <div className="text-3xl md:text-5xl font-light">Magic Happens Here</div>
 
       <div className="flex flex-col md:flex-row items-start md:items-center gap-4 font-[400] md:font-[500] text-[16px] md:text-[20px] pb-10 md:pb-[116px] lg:pb-16">

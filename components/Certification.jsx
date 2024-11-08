@@ -5,7 +5,11 @@ import { PrismaClient } from "@prisma/client"
 export default async function Certification() {
 
     const prisma = new PrismaClient();
-    const data = await prisma.certification.findMany({})
+    const data = await prisma.certification.findMany({
+        orderBy: {
+            order: "asc",
+        },
+    })
 
     return (
         <div className="px-4 lg:px-16 pt-7 pb-14">

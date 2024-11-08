@@ -21,7 +21,7 @@ export default function AdminCertification() {
     useEffect(() => {
         const timer = setTimeout(() => {
             fetchCertification();
-        }, 1000);
+        }, 500);
 
         return () => {
             clearTimeout(timer);

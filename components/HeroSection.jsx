@@ -1,6 +1,6 @@
 import MainImage from '@/public/images/mainImage.png'
 import Image from 'next/image'
-import yellowHeart from '@/public/images/yellow-heart.svg'
+import India from '@/public/images/india.svg'
 
 export default function HeroSection() {
 
@@ -16,7 +16,7 @@ export default function HeroSection() {
                 {/* <p className='text-xl md:text-2xl lg:text-3xl font-medium'>Full-Stack Web Developer</p> */}
                 <p className='font-[400] md:font-[500] text-[24px] md:text-[28px]'>Full-Stack Web Developer</p>
                 <p className='text-lg md:text-xl font-normal'> Bringing websites to life, one pixel at a time.</p>
-                <p className='text-lg md:text-xl font-normal flex items-center gap-2'>Mumbai, India <Image alt='heart' src={yellowHeart} className='w-7 h-7' /></p>
+                <p className='text-lg md:text-xl font-normal flex items-center gap-2'>Mumbai, India <Image alt='heart' src={India} className='w-7 h-7' /></p>
             </div>
         </div>
     )

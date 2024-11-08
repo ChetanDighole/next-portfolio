@@ -28,8 +28,8 @@ export default async function Skills() {
             <Image
               alt={`${eachEle.title} logo`}
               src={eachEle.image}
-              width={80} // default width value in pixels
-              height={80}
+              width={400} // default width value in pixels
+              height={400}
               className="w-14 h-14 sm:w-20 sm:h-20 transition-filter duration-300 ease-out"
             />
             <h4>{eachEle.title}</h4>

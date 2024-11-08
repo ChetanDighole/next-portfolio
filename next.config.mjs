@@ -7,6 +7,9 @@ const nextConfig = {
         // !! WARN !!
         ignoreBuildErrors: true,
     },
+    images: {
+        domains: ['chetan-portfolio-storage.s3.ap-south-1.amazonaws.com'],
+    },
 };
 
 export default nextConfig;

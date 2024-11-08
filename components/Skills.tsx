@@ -1,4 +1,5 @@
 import { PrismaClient } from "@prisma/client";
+import Image from "next/image";
 
 export default async function Skills() {
   const prisma = new PrismaClient();
@@ -24,9 +25,11 @@ export default async function Skills() {
             className="filter grayscale hover:grayscale-0 flex flex-col w-max border border-gray-300 rounded-md shadow-md p-2 md:p-4 transition-transform duration-300 hover:scale-105"
             key={eachEle.id}
           >
-            <img
+            <Image
               alt={`${eachEle.title} logo`}
               src={eachEle.image}
+              width={80} // default width value in pixels
+              height={80}
               className="w-14 h-14 sm:w-20 sm:h-20 transition-filter duration-300 ease-out"
             />
             <h4>{eachEle.title}</h4>

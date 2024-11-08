@@ -7,7 +7,7 @@ const roboto = Roboto({
   subsets: ["latin"],
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Chetan Dighole - Web Developer",
   description:
     "Chetan Dighole is a Full Stack Web Developer with 2 years of market experience in building full-stack applications, with expertise in front-end development. View his portfolio to see his projects and learn more about his skills.",

@@ -4,7 +4,7 @@
 import { useSession, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import AdminCertification from "@/components/adminComponents/adminCertification.jsx";
+import AdminCertification from "@/components/adminComponents/AdminCertification";
 
 export default function Admin() {
   const [allSkills, setAllSkills] = useState([]);

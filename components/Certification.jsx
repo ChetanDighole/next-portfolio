@@ -21,7 +21,7 @@ export default async function Certification() {
             </div>
 
 
-            <div className='grid grid-cols-2 md:grid-cols-4 gap-4'>
+            <div className='grid grid-cols-2 md:grid-cols-4 gap-4 items-start'>
 
                 {data.map((eachEle) => (
                     <CertificateCard title={eachEle.title} url={eachEle.image} subTitle={eachEle.description} key={eachEle.id} />

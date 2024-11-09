@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Roboto } from "next/font/google";
 import "./globals.css";
+import MainImg from "@/public/images/mainImage.png";
 
 const roboto = Roboto({
   weight: ["400", "500", "900", "700"],
@@ -36,6 +38,45 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <Script
+          id="business-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              name: "chetan dighole",
+              url: "https://chetandighole.vercel.app",
+              image: MainImg,
+              sameAs: [
+                "www.linkedin.com/in/chetandighole",
+                "https://twitter.com/ChetanDighole",
+                "https://github.com/ChetanDighole",
+                "https://codewithchetan.hashnode.dev",
+              ],
+              jobTitle: [
+                "Software Engineer",
+                "Full Stack Developer",
+                "Frontend Developer",
+                "Backend Developer",
+                "Web Developer",
+              ],
+              worksFor: {
+                "@type": "Organization",
+                name: ["lemon yellow", "cognizant"],
+              },
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Mumbai",
+                addressRegion: "Maharashtra",
+                postalCode: "421301",
+                addressCountry: "India",
+              },
+            }),
+          }}
+        />
+      </head>
       <body className={roboto.className}>{children}</body>
     </html>
   );

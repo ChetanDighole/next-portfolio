@@ -6,7 +6,11 @@ export default function CertificateCard({ url, title, subTitle }) {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <div className="max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl border border-gray-300 rounded-lg shadow-md overflow-hidden">
+    <div
+      className={`max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl border border-gray-300 rounded-lg shadow-md overflow-hidden ${
+        toggle ? "max-h-full" : "max-h-[450px]"
+      }`}
+    >
       <div className="p-2 md:p-4 flex flex-col justify-center items-center gap-4">
         <Image
           alt="img"

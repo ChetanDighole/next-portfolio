@@ -31,10 +31,15 @@ export default async function Experience() {
                 <div className='flex items-center'>
                     <div className='w-12 h-2 sm:w-16 sm:h-8'></div>
                     <ul className='list-disc'>
-                        <li>Developed a frontend application for the international shipping client <span className='font-bold'>Torm</span> using the <span className='font-bold'>Angular.js</span> framework as the <span className='font-bold'>project owner</span>.</li>
-                        <li>Partnered with <span className='font-bold'>Sony Liv</span> on their <span className='font-bold'>UEFA Euro Cup</span> and <span className='font-bold'>Asian Games</span> events, creating and promptly updating key web pages like the medals and match schedule pages, and have been serving as a dedicated resource for all Sony Liv requirements from December 2023 to the present.</li>
-                        <li>Collaborated with <span className='font-bold'>India Shelter</span> to enhance their loan application process by utilizing <span className='font-bold'>React.js</span>.</li>
-                        <li>Utilized the <span className='font-bold'>Django</span> framework to enhance <a className='font-medium underline underline-offset-1' rel="noopener noreferrer" target='_blank' href='https://www.lemonyellow.design/'>lemonyellow.design</a>, focusing on upgrading the user interface and backend functionality for a sleek and responsive site.</li>
+                        <li>As <span className='font-medium'>project owner</span>, developed a user-focused <span className='font-medium'>Angular.js</span> frontend dashboard for international shipping client <a className='font-bold underline underline-offset-1' rel="noopener noreferrer" target='_blank' href='https://www.torm.com'>Torm</a>,
+                            featuring real-time ship positioning, live data, and intuitive interfaces to enhance operational visibility and efficiency
+                            in ship monitoring and reporting.</li>
+                        <li>Partnered with <a className='font-bold underline underline-offset-1' rel="noopener noreferrer" target='_blank' href='https://www.sonyliv.com/'>Sony Liv</a> on their <span className='font-medium'>UEFA Euro Cup</span> and <span className='font-medium'>Asian Games</span> events, creating and promptly updating key web pages like the medals and match schedule pages, and have been serving as a dedicated resource for all Sony Liv requirements from December 2023 to November 2024.</li>
+                        <li>Contributed to enhancing the lead generation process for <a className='font-bold underline underline-offset-1' rel="noopener noreferrer" target='_blank' href='https://www.indiashelter.in'>India Shelter</a> by improving their loan application system.
+                            Utilized <span className='font-medium'>React.js</span> to create a more intuitive, responsive user interface, streamlining the loan application workflow
+                            and increasing the number of qualified leads.</li>
+                        <li>Directed the development of <span className='font-medium'>Seamless Middle East</span> event functionalities for <a className='font-bold underline underline-offset-1' rel="noopener noreferrer" target='_blank' href='https://www.lemonyellow.design/'>lemonyellow.design</a>, contributing to
+                            the <span className='font-medium'>GIFF</span> event and improving the UI and backend using the Django framework for a smooth, responsive experience.</li>
                     </ul>
                 </div>
             </div>
@@ -56,8 +61,8 @@ export default async function Experience() {
                 <div className='flex items-center'>
                     <div className='w-12 h-2 sm:w-16 sm:h-8'></div>
                     <ul className='list-disc'>
-                        <li>Designed and developed dynamic and responsive websites using <span className='font-bold'>HTML, CSS, JavaScript, bootstrap, Angular.js and Java</span>.</li>
-                        <li>Contributed to the development of a claim management application, which enabled users to submit insurance claims directly to the insurance company, resulting in an 80% reduction in processing time. As a member of a team of 4, this experience provided me with practical exposure to <span className='font-bold'>Java Full Stack Development</span>, where I specifically worked on the <span className='font-bold'>front-end</span> of the application.</li>
+                        <li>Designed and developed dynamic and responsive websites using <span className='font-medium'>HTML, CSS, JavaScript, bootstrap, Angular.js and Java</span>.</li>
+                        <li>Contributed to the development of a claim management application, which enabled users to submit insurance claims directly to the insurance company, resulting in an 80% reduction in processing time. As a member of a team of 4, this experience provided me with practical exposure to <span className='font-medium'>Java Full Stack Development</span>, where I specifically worked on the <span className='font-medium'>front-end</span> of the application.</li>
                     </ul>
                 </div>
             </div>

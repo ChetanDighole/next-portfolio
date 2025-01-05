@@ -26,7 +26,7 @@ export default function Projects() {
             description: "This frontend React app provides a streamlined shopping experience by integrating with the Fakestore API to display a range of products. Users can easily add items to a cart and search for specific products. The app uses Redux for efficient state management, ensuring that the cart and search features respond quickly and maintain accurate data. With an intuitive UI and essential e-commerce functionality, this app serves as a robust foundation for an online shopping experience.",
             techStack: ["React.js", "Redux", "fakestoreapi", "Tailwind"],
             image: AtoZ,
-            liveLink: "https://ecommerceatoz.netlify.app",
+            liveLink: "https://authenticate-assignment-azure.vercel.app/",
             sourceCode: "https://github.com/ChetanDighole/E-Commerce-Application-Clone-ineuron",
         },
     ];

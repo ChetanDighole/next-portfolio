@@ -29,6 +29,9 @@ export const metadata: Metadata = {
     description:
       "Chetan Dighole is a Full Stack Web Developer with 2 years of market experience in building full-stack applications. View his portfolio to see his projects and learn more about his skills.",
   },
+  verification: {
+    google: "9cx0r49SB9L_LQQ3DfcqFmilOs122J57Up3DrXG09tQ", // Replace with your actual verification code
+  },
 };
 
 export default function RootLayout({

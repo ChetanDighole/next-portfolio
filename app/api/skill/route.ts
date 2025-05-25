@@ -20,7 +20,7 @@ export async function POST(req: Request) {
 
     const buffer = Buffer.from(await image.arrayBuffer());
 
-    const customFileName = `${title}.${image.name.split(".").pop()}`;
+    const customFileName = `${title}_skill.${image.name.split(".").pop()}`;
 
     const uploadImage = await uploadFileToS3(buffer, customFileName);
 
